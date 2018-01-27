@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { log } from 'core-js/library/web/timers';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'mw-media-item',
@@ -7,6 +6,8 @@ import { log } from 'core-js/library/web/timers';
   styleUrls: ['app/media-item.component.css']
 })
 export class MediaItemComponent {
+  @Input() mediaItem
+
   onDelete() {
     console.log("deleted")
   }
