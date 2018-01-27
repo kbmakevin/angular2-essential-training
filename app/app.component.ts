@@ -7,6 +7,9 @@ import { Component } from '@angular/core'
     styleUrls: ['app/app.component.css']
 })
 export class AppComponent {
+    onMediaItemDelete(mediaItem) {
+        console.log(mediaItem.name + ' deleted')
+    }
     firstMediaItem = {
         id: 1,
         name: 'Firebug',
