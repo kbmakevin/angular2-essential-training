@@ -18,8 +18,22 @@ export class MediaItemFormComponent {
                 Validators.pattern('[\\w\\-\\s\\/]+')
             ])),
             category: new FormControl(''),
-            year: new FormControl(''),
+            // NOTE: we are simply handing over our function, dont need () like built-in validators
+            year: new FormControl('', this.yearValidator)
         })
+    }
+
+    yearValidator(control) {
+        if (control.value.trim().length === 0) {
+            return null
+        }
+        let year = parseInt(control.value)
+        let minYear = 1900
+        let maxYear = 2100
+        if (year >= minYear && year <= 2100) return null
+        else return {
+            'year': true
+        }
     }
 
     onSubmit(mediaItem) {
