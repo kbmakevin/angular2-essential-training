@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { log } from 'core-js/library/web/timers';
 
 @Component({
   selector: 'mw-media-item',
@@ -6,9 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['app/media-item.component.css']
 })
 export class MediaItemComponent {
-  name = 'The Redemption'
-
-  wasWatched(): boolean {
-    return true
+  onDelete() {
+    console.log("deleted")
   }
 }
