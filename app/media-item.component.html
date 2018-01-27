@@ -1,4 +1,4 @@
-<h2>{{ mediaItem.name | slice:0:10 | uppercase }}</h2>
+<h2>{{ mediaItem.name }}</h2>
 <!-- structure directive: ngIf, renders only if this prop has a value -->
 <template [ngIf]="mediaItem.watchedOn">
   <div>Watched on {{ mediaItem.watchedOn | date: 'shortDate' }}</div>
