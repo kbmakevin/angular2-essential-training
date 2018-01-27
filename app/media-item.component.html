@@ -1,5 +1,9 @@
 <h2>{{ mediaItem.name }}</h2>
-<div>Watched on {{ mediaItem.watchedOn }}</div>
+<!-- structure directive: ngIf, renders only if this prop has a value -->
+<template [ngIf]="mediaItem.watchedOn">
+  <div>Watched on {{ mediaItem.watchedOn }}</div>
+  <!-- <div *ngIf='mediaItem.watchedOn'>Watched on {{ mediaItem.watchedOn }}</div> -->
+</template>
 <div>{{ mediaItem.category }}</div>
 <div>{{ mediaItem.year }}</div>
 <div class="tools">
