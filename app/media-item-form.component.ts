@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Validators, FormBuilder } from "@angular/forms";
 
 @Component({
     selector: 'mw-media-item-form',
@@ -8,18 +8,19 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class MediaItemFormComponent {
     form
+    constructor(private formBuilder: FormBuilder) { }
 
     // ng life cycle event
     ngOnInit() {
-        this.form = new FormGroup({
-            medium: new FormControl('Movies'),
-            name: new FormControl('', Validators.compose([
+        this.form = this.formBuilder.group({
+            medium: this.formBuilder.control('Movies'),
+            name: this.formBuilder.control('', Validators.compose([
                 Validators.required,
                 Validators.pattern('[\\w\\-\\s\\/]+')
             ])),
-            category: new FormControl(''),
+            category: this.formBuilder.control(''),
             // NOTE: we are simply handing over our function, dont need () like built-in validators
-            year: new FormControl('', this.yearValidator)
+            year: this.formBuilder.control('', this.yearValidator)
         })
     }
 
